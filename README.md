@@ -12,7 +12,7 @@ Manage your products, create orders for customers, update shipment statuses, and
 *   **Real-time Timeline:** Displays a clear, chronological history of order status updates (e.g., Pending, Processing, Shipped, Delivered).
 *   **Secure Admin Panel:** A password-protected dashboard to manage the entire system.
 *   **Order Management:** View, search, and filter all orders. Update order statuses with optional notes.
-*   **Create Orders Manually:** Easily create new orders for sales made over the phone, social media, or in-person.
+*   **Create Orders Manually:** Easily create new orders for sales made over the phone, social media, or in person.
 *   **Product Management:** A simple interface to add, edit, and delete products and manage stock levels.
 *   **Print Invoices & Labels:** Generate printer-friendly invoices and shipping labels directly from the order details page.
 *   **Zero Dependencies:** Built with pure, vanilla PHP and MySQL. No need to manage complex dependencies with Composer.
@@ -33,7 +33,7 @@ Follow these instructions to get OrderTrack PHP up and running on your server.
 1.  **Clone or Download:**
     Clone the repository to your local machine or web server:
     ```bash
-    git clone https://github.com/your-username/ordertrack-php.git
+    git clone https://github.com/bteamapp/ordertrack.git
     ```
     Alternatively, download the ZIP file and extract it to your desired directory (e.g., `/var/www/html/`).
 
@@ -90,7 +90,7 @@ Some areas for potential improvement:
 
 ## 📄 License
 
-This project is open-sourced under the [GNU GPL v3.0](LICENSE.md). See the `LICENSE.md` file for details.
+This project is open-sourced under the [GNU GPL v3.0](LICENSE). See the `LICENSE` file for details.
 
 ---
 Made with ❤️ for small businesses.
