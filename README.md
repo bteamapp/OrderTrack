@@ -15,6 +15,9 @@ Manage your products, create orders for customers, update shipment statuses, and
 *   **Create Orders Manually:** Easily create new orders for sales made over the phone, social media, or in person.
 *   **Product Management:** A simple interface to add, edit, and delete products and manage stock levels.
 *   **Print Invoices & Labels:** Generate printer-friendly invoices and shipping labels directly from the order details page.
+*   **User Management:** Admins can add, edit, and delete other user accounts from the UI.
+*   **Profile Management:** Logged-in users can securely change their own password.
+*   **QR Code Tracking:** Invoices now include a scannable QR code that links customers directly to their order tracking page.
 *   **Zero Dependencies:** Built with pure, vanilla PHP and MySQL. No need to manage complex dependencies with Composer.
 *   **Easy to Deploy:** Simply upload to any standard PHP/MySQL web server (like LAMP/LEMP), configure your database, and you're ready to go.
 
@@ -54,6 +57,8 @@ Follow these instructions to get OrderTrack PHP up and running on your server.
       // --- SITE CONFIGURATION ---
       define('SITE_URL', 'http://your-website.com'); // IMPORTANT: No trailing slash
       ```
+    - Inside the project root, create a `libs` folder. Download the `PHP QR Code` library, and place the extracted phpqrcode folder inside libs.
+    - Inside the project root, create a `temp` folder. Ensure your web server has write permissions for this directory.
 
 4.  **Set Up `.htaccess` (for Apache users):**
     The included `.htaccess` file enables clean URLs. Ensure that `mod_rewrite` is enabled on your Apache server. If you are using Nginx, you will need to configure the URL rewrites in your server block.

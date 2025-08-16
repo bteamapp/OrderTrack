@@ -14,7 +14,7 @@ $items = $conn->query("SELECT p.name, p.sku, oi.quantity, oi.price FROM order_it
 if (!$order) die("Order not found.");
 
 // --- QR Code Generation ---
-$track_url = SITE_URL . '/track.php?code=' . $order['order_code'];
+$track_url = SITE_URL . '/?code=' . $order['order_code'];
 $qr_code_file = __DIR__ . '/../temp/qr_' . $order['order_code'] . '.png';
 QRcode::png($track_url, $qr_code_file, QR_ECLEVEL_L, 4);
 
