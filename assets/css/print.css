@@ -1,0 +1,21 @@
+@media print {
+    body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #000; background: #fff; }
+    .invoice-box, .shipping-label { max-width: 800px; margin: auto; padding: 30px; border: 1px solid #eee; font-size: 16px; line-height: 24px; }
+    .no-print, button, a { display: none !important; }
+    table { width: 100%; border-collapse: collapse; }
+    table td, table th { border: 1px solid #ddd; padding: 5px; }
+    table tr:nth-child(even) { background: #f9f9f9; }
+    h1 { color: #000; }
+    .header, .address { display: flex; justify-content: space-between; margin-bottom: 20px; }
+    tfoot .total { font-weight: bold; background: #eee; }
+    .footer { text-align: center; margin-top: 30px; color: #777; font-size: 12px; }
+    .shipping-label { padding: 10mm; width: 90mm; height: 140mm; box-sizing: border-box; border: 2px dashed #000; }
+    .from-address, .to-address { font-size: 12pt; line-height: 1.5; }
+    .to-address { font-size: 16pt; margin: 20px 0; }
+    .order-info { text-align: center; font-size: 14pt; }
+    hr { border-top: 2px dashed #000; }
+}
+/* Styles for screen view of print pages */
+body { background: #eee; }
+.invoice-box, .shipping-label { max-width: 8.5in; margin: 20px auto; padding: 30px; border: 1px solid #ddd; font-size: 16px; line-height: 24px; background: #fff; box-shadow: 0 0 10px rgba(0,0,0,0.15); }
+.shipping-label { width: 100mm; height: 150mm; }
