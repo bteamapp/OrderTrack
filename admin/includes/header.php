@@ -21,13 +21,17 @@ if (!is_logged_in()) {
             <h2><?= SITE_NAME ?></h2>
             <nav>
                 <ul>
-                    <li><a href="<?= SITE_URL ?>/admin">Dashboard</a></li>
+                    <li><a href="<?= SITE_URL ?>/admin/index.php">Dashboard</a></li>
                     <li><a href="<?= SITE_URL ?>/admin/orders.php">Orders</a></li>
                     <li><a href="<?= SITE_URL ?>/admin/create_order.php">Create Order</a></li>
                     <li><a href="<?= SITE_URL ?>/admin/products.php">Products</a></li>
-                    <li><a href="<?= SITE_URL ?>/admin/logout.php">Logout</a></li>
+                    <li><a href="<?= SITE_URL ?>/admin/users.php">User Management</a></li>
                 </ul>
             </nav>
+            <div class="sidebar-footer">
+                <a href="<?= SITE_URL ?>/admin/profile.php">My Profile</a>
+                <a href="<?= SITE_URL ?>/admin/logout.php">Logout</a>
+            </div>
         </aside>
         <main class="main-content">
             <header class="admin-header">

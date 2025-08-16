@@ -19,3 +19,10 @@
 body { background: #eee; }
 .invoice-box, .shipping-label { max-width: 8.5in; margin: 20px auto; padding: 30px; border: 1px solid #ddd; font-size: 16px; line-height: 24px; background: #fff; box-shadow: 0 0 10px rgba(0,0,0,0.15); }
 .shipping-label { width: 100mm; height: 150mm; }
+
+/* New of print.css */
+.invoice-header { display: flex; justify-content: space-between; align-items: flex-start; }
+.header-meta { margin-top: 20px; }
+.qr-code { text-align: center; }
+.qr-code img { width: 100px; height: 100px; }
+.qr-code p { margin: 5px 0 0; font-size: 10px; color: #555; }

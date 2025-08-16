@@ -80,3 +80,10 @@ body.login-page { display: flex; justify-content: center; align-items: center; h
 
 /* Product Page */
 .content-split { display: grid; grid-template-columns: 1fr 2fr; gap: 30px; }
+
+/* Add to bottom of style.css */
+.sidebar { display: flex; flex-direction: column; }
+.sidebar nav { flex-grow: 1; }
+.sidebar-footer { padding: 15px; border-top: 1px solid #34495e; }
+.sidebar-footer a { display: block; text-decoration: none; color: #ecf0f1; padding: 8px 0; font-size: 14px; }
+.sidebar-footer a:hover { color: #fff; }

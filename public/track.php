@@ -7,28 +7,35 @@ $order = null;
 $error = '';
 $search_term = '';
 
+// Check for GET request (from QR code)
+if (isset($_GET['code'])) {
+    $search_term = sanitize($_GET['code']);
+}
+
+// Check for POST request (from form submission)
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['search_term'])) {
     $search_term = sanitize($_POST['search_term']);
-    if (!empty($search_term)) {
-        $stmt = $conn->prepare("SELECT * FROM orders WHERE order_code = ? OR customer_phone = ?");
-        $stmt->bind_param("ss", $search_term, $search_term);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        if ($result->num_rows > 0) {
-            $order = $result->fetch_assoc();
-            
-            // Fetch status history
-            $history_stmt = $conn->prepare("SELECT * FROM order_status_history WHERE order_id = ? ORDER BY created_at DESC");
-            $history_stmt->bind_param("i", $order['id']);
-            $history_stmt->execute();
-            $order['history'] = $history_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-        } else {
-            $error = "No order found with the provided details. Please check and try again.";
-        }
-        $stmt->close();
+}
+
+if (!empty($search_term)) {
+    $stmt = $conn->prepare("SELECT * FROM orders WHERE order_code = ? OR customer_phone = ?");
+    $stmt->bind_param("ss", $search_term, $search_term);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows > 0) {
+        $order = $result->fetch_assoc();
+        
+        // Fetch status history
+        $history_stmt = $conn->prepare("SELECT * FROM order_status_history WHERE order_id = ? ORDER BY created_at DESC");
+        $history_stmt->bind_param("i", $order['id']);
+        $history_stmt->execute();
+        $order['history'] = $history_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     } else {
-        $error = "Please enter an Order ID or Phone Number.";
+        $error = "No order found with the provided details. Please check and try again.";
     }
+    $stmt->close();
+} elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+     $error = "Please enter an Order ID or Phone Number.";
 }
 ?>
 <!DOCTYPE html>
@@ -44,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['search_term'])) {
         <h1>Track Your Order</h1>
         <p>Enter your Order ID or the Phone Number you used during checkout to see your order details and status.</p>
         
-        <form action="<?= SITE_URL ?>/track" method="post" class="track-form">
+        <form action="<?= SITE_URL ?>/track.php" method="post" class="track-form">
             <input type="text" name="search_term" placeholder="Enter Order ID or Phone Number" value="<?= htmlspecialchars($search_term) ?>" required>
             <button type="submit">Track Order</button>
         </form>
@@ -54,6 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['search_term'])) {
         <?php endif; ?>
 
         <?php if ($order): ?>
+            <!-- The rest of the HTML is the same as before -->
             <div class="order-details">
                 <h2>Order Details</h2>
                 <div class="detail-grid">
