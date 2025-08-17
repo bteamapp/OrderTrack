@@ -51,7 +51,7 @@ if (!empty($search_term)) {
         <h1>Track Your Order</h1>
         <p>Enter your Order ID or the Phone Number you used during checkout to see your order details and status.</p>
         
-        <form action="<?= SITE_URL ?>/track.php" method="post" class="track-form">
+        <form action="<?= SITE_URL ?>/" method="post" class="track-form">
             <input type="text" name="search_term" placeholder="Enter Order ID or Phone Number" value="<?= htmlspecialchars($search_term) ?>" required>
             <button type="submit">Track Order</button>
         </form>
